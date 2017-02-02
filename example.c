@@ -1,6 +1,7 @@
 #include <stddef.h>
 #include <complex.h>
-#include "ufft.h"
+#include "fft.h"
+#include "ift.h"
 #include <stdio.h>
 
 int main()
@@ -13,9 +14,23 @@ int main()
 		vector[n] = n;
 	}
 
+	printf("in time domain:\n");
+
+	for(size_t n = 0; n < N; n++) {
+		printf("%f%+fi\n", creal(vector[n]), cimag(vector[n]));
+	}
+
 	fft(vector, N);
 
-	printf("DFT:\n");
+	printf("in frequency domain:\n");
+
+	for(size_t n = 0; n < N; n++) {
+		printf("%f%+fi\n", creal(vector[n]), cimag(vector[n]));
+	}
+
+	ift(vector, N);
+
+	printf("in time domain:\n");
 
 	for(size_t n = 0; n < N; n++) {
 		printf("%f%+fi\n", creal(vector[n]), cimag(vector[n]));

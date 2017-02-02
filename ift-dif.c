@@ -1,4 +1,4 @@
-#include "ufft.h"
+#include "ift.h"
 #include <math.h>
 #include <stdlib.h>
 #include <string.h>
@@ -18,16 +18,16 @@ static int ctz(size_t N)
 static void nop_split(const float complex *x, float complex *X, size_t N)
 {
 	for(size_t n = 0; n < N/2; n++) {
-		X[0   + n] = x[2*n+0];
-		X[N/2 + n] = x[2*n+1];
+		X[2*n+0] = x[0/2+n];
+		X[2*n+1] = x[N/2+n];
 	}
 }
 
 static void fft_split(const float complex *x, float complex *X, size_t N, float complex phi)
 {
 	for(size_t n = 0; n < N/2; n++) {
-		X[0   + n] = x[2*n+0] + x[2*n+1] * cexp(-2*(float)M_PI*I*phi);
-		X[N/2 + n] = x[2*n+0] - x[2*n+1] * cexp(-2*(float)M_PI*I*phi);
+		X[2*n+0] = (x[0/2+n] + x[N/2+n])/2;
+		X[2*n+1] = (x[0/2+n] - x[N/2+n])/2 * cexp(+2*(float)M_PI*I*phi);
 	}
 }
 
@@ -46,7 +46,7 @@ static int nop_reverse(int b, float complex *buffers[2], size_t N)
 {
 	int J = ctz(N);
 
-	for(int j = 0; j < J-1; j++, b++) {
+	for(int j = J-2; j >= 0; j--, b++) {
 		size_t delta = N>>j;
 
 		for(size_t n = 0; n < N; n += delta) {
@@ -61,7 +61,7 @@ static int fft_reverse(int b, float complex *buffers[2], size_t N)
 {
 	int J = ctz(N);
 
-	for(int j = 0; j < J; j++, b++) {
+	for(int j = J-1; j >= 0; j--, b++) {
 		size_t delta = N>>j;
 
 		for(size_t n = 0; n < N; n += delta) {
@@ -73,7 +73,7 @@ static int fft_reverse(int b, float complex *buffers[2], size_t N)
 	return b;
 }
 
-int fft(float complex *vector, size_t N)
+int ift(float complex *vector, size_t N)
 {
 	if( !N ) return 0;
 

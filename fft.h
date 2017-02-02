@@ -1,11 +1,11 @@
-#ifndef UFFT_H
-#define UFFT_H
+#ifndef FFT_H
+#define FFT_H
 
 #include <complex.h>
 #include <stddef.h>
 
 /**
- * @brief FFT algorithm
+ * @brief FFT algorithm (forward transform)
  *
  * This function computes forward radix-2 fast Fourier transform (FFT) using Cooley-Tukey algorithm.
  * The output is written in-place over the input.
