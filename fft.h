@@ -7,7 +7,7 @@
 /**
  * @brief FFT algorithm (forward transform)
  *
- * This function computes forward radix-2 fast Fourier transform (FFT) using Cooley-Tukey algorithm.
+ * This function computes forward radix-2 fast Fourier transform (FFT).
  * The output is written in-place over the input.
  *
  * @param vector An array of @p N complex values in single-precision floating-point format.

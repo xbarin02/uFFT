@@ -7,7 +7,7 @@
 /**
  * @brief FFT algorithm (inverse transform)
  *
- * This function computes inverse radix-2 fast Fourier transform (FFT) using Cooley-Tukey algorithm.
+ * This function computes inverse radix-2 fast Fourier transform (FFT).
  * The output is written in-place over the input.
  *
  * @param vector An array of @p N complex values in single-precision floating-point format.
