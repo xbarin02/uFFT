@@ -26,8 +26,8 @@ static void nop_split(const float complex *x, float complex *X, size_t N)
 static void fft_split(const float complex *x, float complex *X, size_t N, float complex phi)
 {
 	for(size_t n = 0; n < N/2; n++) {
-		X[0/2+n] = x[2*n+0] + x[2*n+1] * cexp(-2*(float)M_PI*I*phi);
-		X[N/2+n] = x[2*n+0] - x[2*n+1] * cexp(-2*(float)M_PI*I*phi);
+		X[0/2+n] = x[2*n+0] + x[2*n+1] * cexpf(-2*(float)M_PI*I*phi);
+		X[N/2+n] = x[2*n+0] - x[2*n+1] * cexpf(-2*(float)M_PI*I*phi);
 	}
 }
 

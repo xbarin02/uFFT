@@ -27,7 +27,7 @@ static void fft_split(const float complex *x, float complex *X, size_t N, float 
 {
 	for(size_t n = 0; n < N/2; n++) {
 		X[2*n+0] = (x[0/2+n] + x[N/2+n]);
-		X[2*n+1] = (x[0/2+n] - x[N/2+n]) * cexp(-2*(float)M_PI*I*phi);
+		X[2*n+1] = (x[0/2+n] - x[N/2+n]) * cexpf(-2*(float)M_PI*I*phi);
 	}
 }
 
