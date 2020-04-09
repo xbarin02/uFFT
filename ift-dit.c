@@ -65,7 +65,7 @@ static int fft_reverse(int b, float complex *buffers[2], size_t N)
 		size_t delta = N>>j;
 
 		for(size_t n = 0; n < N; n += delta) {
-			float complex phi = (float)revbits( n/delta, j) / (float)(2<<j);
+			float complex phi = (float)revbits(n/delta, j) / (float)(2<<j);
 			fft_split(buffers[b&1]+n, buffers[~b&1]+n, delta, phi);
 		}
 	}
