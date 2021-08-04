@@ -10,13 +10,13 @@ int main()
 
 	float complex vector[N];
 
-	for(size_t n = 0; n < N; n++) {
+	for (size_t n = 0; n < N; n++) {
 		vector[n] = n;
 	}
 
 	printf("in time domain:\n");
 
-	for(size_t n = 0; n < N; n++) {
+	for (size_t n = 0; n < N; n++) {
 		printf("%f%+fi\n", creal(vector[n]), cimag(vector[n]));
 	}
 
@@ -24,7 +24,7 @@ int main()
 
 	printf("in frequency domain:\n");
 
-	for(size_t n = 0; n < N; n++) {
+	for (size_t n = 0; n < N; n++) {
 		printf("%f%+fi\n", creal(vector[n]), cimag(vector[n]));
 	}
 
@@ -32,7 +32,7 @@ int main()
 
 	printf("in time domain:\n");
 
-	for(size_t n = 0; n < N; n++) {
+	for (size_t n = 0; n < N; n++) {
 		printf("%f%+fi\n", creal(vector[n]), cimag(vector[n]));
 	}
 
