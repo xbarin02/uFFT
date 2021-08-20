@@ -6,7 +6,7 @@
 
 int main()
 {
-	size_t N = 1<<3;
+	size_t N = 1 << 3;
 
 	float complex vector[N];
 
